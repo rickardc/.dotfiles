@@ -1,6 +1,8 @@
 [user]
 	name = Chris Rickard
 	email = 103567821+rickardc@users.noreply.github.com
+[core]
+	editor = code --wait
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
