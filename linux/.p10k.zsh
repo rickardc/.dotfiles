@@ -1,0 +1,1 @@
+/home/chris/.p10k.zsh
