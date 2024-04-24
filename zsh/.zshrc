@@ -114,3 +114,5 @@ unset __conda_setup
 
 # 1password
 eval "$(op completion zsh)"; compdef _op op
+
+source ~/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
