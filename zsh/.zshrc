@@ -67,7 +67,7 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 fi
 
 # Antigen
-source $HOME/antigen.zsh
+source $HOME/zsh/antigen.zsh
 
 # logginf
 # ANTIGEN_LOG=~/antigen.log
@@ -107,10 +107,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/GitHub/dotfiles/linux/zsh/.p10k.zsh.
-[[ ! -f ~/GitHub/dotfiles/linux/zsh/.p10k.zsh ]] || source ~/GitHub/dotfiles/linux/zsh/.p10k.zsh
+[[ ! -f ~/zsh/.p10k.zsh ]] || source ~/zsh/.p10k.zsh
 
 # 1password
 eval "$(op completion zsh)"; compdef _op op
