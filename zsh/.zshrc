@@ -106,6 +106,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH=$PATH:$HOME/miniconda3/bin
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/zsh/.p10k.zsh ]] || source ~/zsh/.p10k.zsh
 
