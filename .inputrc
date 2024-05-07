@@ -1,0 +1,12 @@
+# source: https://www.cs.cmu.edu/~07131/f22/topics/terminal-configuration/configuring-bash/
+
+# Set up Vim-style tab completion
+TAB: menu-complete
+set show-all-if-ambiguous on
+
+# If a tab-completed file is a symlink to a directory,
+# treat it like a directory not a file
+set mark-symlinked-directories on
+
+# Use GNU ls colors when tab-completing files
+set colored-stats on

@@ -1,0 +1,6 @@
+[user]
+	name = Chris Rickard
+	email = 103567821+rickardc@users.noreply.github.com
+[core]
+	excludesfile = /home/chris/.gitignore_global
+	editor = nano
