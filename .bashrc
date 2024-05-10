@@ -48,3 +48,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+fastfetch
+
+# Prompt
+PS1=""
+# Add conda environment to prompt
+if [ ! -z "$CONDA_DEFAULT_ENV" ]
+then
+    PS1+="($CONDA_DEFAULT_ENV) "
+fi
+PS1+="\[\033[0;32m\]\u@\h\033[0m\]:\033[0;34m\]\w\[\033[0m\]$ "
