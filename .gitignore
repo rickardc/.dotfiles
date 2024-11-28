@@ -5,3 +5,5 @@
 *.zsh_sessions*
 *.zcompdump*
 *.zshrc.zwc
+
+*nixos-switch.log
