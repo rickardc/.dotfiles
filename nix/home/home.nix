@@ -4,13 +4,7 @@
   inputs,
   lib,
   ...
-}: let
-  #firefoxConfig = import ./modules/firefox.nix;
-in {
-  imports = [
-    #./firefox.nix
-  ];
-
+}: {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -54,6 +48,11 @@ in {
     # vscode = import ./vscode.nix {inherit pkgs;};
     zoxide = import ./zoxide.nix {inherit pkgs;};
     zsh = import ./zsh.nix {inherit config pkgs lib;};
+  };
+
+  home.file."${config.xdg.configHome}/nvim" = {
+    source = ../../.config/nvim;
+    recursive = true;
   };
 
   xdg = {

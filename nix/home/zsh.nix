@@ -11,11 +11,17 @@
 
   shellAliases = {
     vim = "nvim";
-    ls = "ls --color";
     ctrl-l = "clear";
     C-l = "ctrl-l";
     control-l = "clear";
     clean = "clear";
+
+    ll = "ls -alF";
+    la = "ls -A";
+    l = "ls -CF";
+    gs = "git status";
+    ls = "ls --color=auto";
+    grep = "grep --color=auto";
   };
 
   initExtra = ''

@@ -95,7 +95,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chris = {
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "chris";
     extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm"];
@@ -107,6 +107,8 @@
       mission-center
     ];
   };
+  # Enable zsh
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -127,6 +129,8 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    bat
+    bat-extras.batman
     neovim
     git
     curl
@@ -135,7 +139,10 @@
     os-prober
     localsend
     darktable
+    pika-backup
+    firefox
     additions.ida-free
+    man
   ];
 
   fonts.packages = with pkgs; [
