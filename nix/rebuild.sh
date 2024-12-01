@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
-pushd /home/chris/github/nixos || exit
+pushd /home/chris/.dotfiles/nix || exit
 alejandra . &>/dev/null
 git add .
 git diff -U0 ./*.nix*

@@ -8,12 +8,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-boxes
-    gnome.gnome-shell-extensions
-    gnome.gnome-software
-    gnome.gnome-terminal
+    gnome-boxes
+    gnome-shell-extensions
+    gnome-software
+    gnome-terminal
     gnomeExtensions.window-calls
-    gnomeExtensions.wallpaper-switcher
   ];
 
   environment.gnome.excludePackages = [
