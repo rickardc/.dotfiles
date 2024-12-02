@@ -105,6 +105,7 @@
       tree
       upscayl
       mission-center
+      tree-sitter
     ];
   };
   # Enable zsh
@@ -135,7 +136,9 @@
     git
     curl
     gh
+    fd
     tmux
+    ripgrep
     os-prober
     localsend
     darktable
@@ -143,6 +146,7 @@
     firefox
     additions.ida-free
     man
+    unzip
   ];
 
   fonts.packages = with pkgs; [
@@ -174,7 +178,7 @@
   #hardware.graphics.enable = true;
   #hardware.graphics.enable32Bit = true;
 
-  #services.xserver.videoDriver = ["amdgpu"];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   # auto update
   system.autoUpgrade = {

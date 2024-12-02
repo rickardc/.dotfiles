@@ -12,7 +12,7 @@
     gnome-shell-extensions
     gnome-software
     gnome-terminal
-    gnomeExtensions.window-calls
+    gnomeExtensions.sermon
   ];
 
   environment.gnome.excludePackages = [

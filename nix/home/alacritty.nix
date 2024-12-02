@@ -37,7 +37,7 @@
       bold = jetbrainsMono "Bold";
       italic = jetbrainsMono "Italic";
       bold_italic = jetbrainsMono "Bold Italic";
-      size = 12;
+      size = 14;
     };
 
     #mouse.hide_when_typing = true;

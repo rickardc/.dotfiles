@@ -43,7 +43,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     template = '{{ .FormattedMs }}'
 
     [blocks.segments.properties]
-      threshold = 5000
+      threshold = 20000
 
 [[blocks]]
   type = 'prompt'
