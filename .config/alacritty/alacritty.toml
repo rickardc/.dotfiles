@@ -1,9 +1,3 @@
-# Theme 
-import = ["~/.config/alacritty/catppuccin-mocha.toml",
-          "~/.config/alacritty/keybindings.toml",
-]
-
-live_config_reload = false
 
 [env]
 TERM = "xterm-256color"
@@ -14,7 +8,7 @@ opacity = 0.98
 blur = true
 
 [font]
-normal = { family = "MesloLGSNerdFontMono", style = "Regular" }
+normal = { family = "MesloLGS Nerd Font Mono", style = "Regular" }
 size = 12
 
 [selection]
@@ -29,3 +23,11 @@ unfocused_hollow = true
 
 [mouse]
 hide_when_typing = true
+
+[general]
+
+live_config_reload = false
+# Theme 
+import = ["~/.config/alacritty/catppuccin-mocha.toml",
+          "~/.config/alacritty/keybindings.toml",
+]
