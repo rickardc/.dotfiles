@@ -28,10 +28,11 @@ hide_when_typing = true
 
 [general]
 
-live_config_reload = false
-
-# Theme 
+live_config_reload = true
 import = [
-    "~/.config/alacritty/catppuccin-mocha.toml",
     "~/.config/alacritty/keybindings.toml",
+
+    # themes
+    #"~/.config/alacritty/catppuccin-mocha.toml",
+    "~/.config/alacritty/tokyo-night.toml",
 ]
