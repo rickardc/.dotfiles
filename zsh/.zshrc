@@ -114,4 +114,4 @@ export PATH=$PATH:$HOME/miniconda3/bin
 # 1password
 eval "$(op completion zsh)"; compdef _op op
 
-source ~/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/zsh/catppuccin_mocha-zsh-syntax-highlighting.zshexport PATH="/usr/local/opt/mysql-client/bin:$PATH"

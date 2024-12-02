@@ -19,6 +19,8 @@
   //"cursor",
     "terminal",
     "terminalfont",
+    "board",
+    "bios",
     "cpu",
     "gpu",
     "memory",

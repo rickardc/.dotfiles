@@ -4,3 +4,8 @@
 [core]
 	excludesfile = /home/chris/.gitignore_global
 	editor = nano
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
