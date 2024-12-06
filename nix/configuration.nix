@@ -143,7 +143,6 @@
     localsend
     darktable
     pika-backup
-    firefox
     additions.ida-free
     man
     unzip

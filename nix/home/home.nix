@@ -42,7 +42,6 @@
     fastfetch = import ./fastfetch.nix {inherit pkgs;};
     fzf = import ./fzf.nix {inherit pkgs;};
     git = import ./git.nix {inherit pkgs;};
-    librewolf = import ./librewolf.nix {inherit pkgs;};
     neovim = import ./neovim.nix {inherit pkgs;};
     tmux = import ./tmux.nix {inherit pkgs;};
     # vscode = import ./vscode.nix {inherit pkgs;};
