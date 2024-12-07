@@ -145,6 +145,7 @@
     pika-backup
     additions.ida-free
     man
+    stow
     unzip
   ];
 
