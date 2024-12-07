@@ -183,7 +183,7 @@
   # auto update
   system.autoUpgrade = {
     enable = true;
-    flake = "/home/chris/github/nixos/flake.nix";
+    flake = "/home/chris/.dotfiles/nix/flake.nix";
     flags = [
       "--update-input"
       "nixpkgs"

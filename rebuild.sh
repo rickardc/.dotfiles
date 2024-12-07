@@ -2,6 +2,5 @@
 
 git add .
 sudo nixos-rebuild switch --flake ./nix
-
 flatpak update
 
