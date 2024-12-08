@@ -12,7 +12,7 @@
     };
   };
 
-  home.import = [
+  imports = [
     ./obsidian.nix
   ];
   # Home Manager needs a bit of information about you and the
@@ -25,7 +25,6 @@
     btop
     discord
     glib
-    #vesktop
     signal-desktop
     _1password-gui
     unstable.zed-editor
