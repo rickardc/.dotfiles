@@ -63,20 +63,13 @@
   gtk = {
     enable = true;
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
+      gtk-application-prefer-system-theme = true;
     };
   };
 
   dconf = {
     enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
-
-  home.activation = {
-    set-gnome-background = pkgs.lib.mkAfter ''
-      ${pkgs.glib}/bin/gsettings set org.gnome.desktop.background picture-uri '$HOME/github/nixos/wallpapers/abstract.png'
-      ${pkgs.glib}/bin/gsettings set org.gnome.desktop.background picture-options 'zoom'
-    '';
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-system";
   };
 
   # This value determines the Home Manager release that your

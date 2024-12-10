@@ -23,7 +23,7 @@ in {
 
   systemd.user.timers.git-sync-obsidian = {
     Unit.Description = "Run Git Sync for Obsidian Vault";
-    Timer.OnCalendar = "*:0/15";
+    Timer.OnCalendar = "*:2/15"; # every 2 hours 15 mins
     Install.WantedBy = ["timers.target"];
   };
 }
