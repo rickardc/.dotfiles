@@ -21,6 +21,7 @@
         redhat.vscode-yaml
         tamasfe.even-better-toml
         timonwong.shellcheck
+        ex3ndr.llama-coder
       ];
     })
   ];
