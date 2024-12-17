@@ -15,17 +15,6 @@
 
     # Alacritty theme
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -33,7 +22,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    nixvim,
     alacritty-theme,
     ...
   } @ inputs: {

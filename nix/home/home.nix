@@ -20,19 +20,6 @@
   home.username = "chris";
   home.homeDirectory = "/home/chris";
 
-  home.packages = with pkgs; [
-    fastfetch
-    btop
-    discord
-    glib
-    signal-desktop
-    _1password-gui
-    unstable.zed-editor
-    solaar
-    vlc
-    gsettings-desktop-schemas
-  ];
-
   home.sessionVariables = {
     EDITOR = "nvim";
     GSETTINGS_SCHEMA_DIR = "${pkgs.glib}/share/glib-2.0/schemas";
@@ -46,7 +33,6 @@
     git = import ./git.nix {inherit pkgs;};
     neovim = import ./neovim.nix {inherit pkgs;};
     tmux = import ./tmux.nix {inherit pkgs;};
-    # vscode = import ./vscode.nix {inherit pkgs;};
     zoxide = import ./zoxide.nix {inherit pkgs;};
     zsh = import ./zsh.nix {inherit config pkgs lib;};
   };

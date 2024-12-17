@@ -140,12 +140,22 @@
     tmux
     ripgrep
     os-prober
+    man
+    unzip
+    fastfetch
+    btop
+    glib
+
+    # gui
+    vlc
     localsend
     darktable
     pika-backup
     additions.ida-free
-    man
-    unzip
+    signal-desktop
+    _1password-gui
+    unstable.zed-editor
+    discord
   ];
 
   fonts.packages = with pkgs; [
@@ -216,7 +226,7 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22 53317]; # 53317 for localSend
+  networking.firewall.allowedTCPPorts = [22 53317 8080]; # 53317 for localSend
   networking.firewall.allowedUDPPorts = [53317];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
