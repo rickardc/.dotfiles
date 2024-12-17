@@ -15,6 +15,7 @@
     ./modules/gnome.nix
     ./modules/languages.nix
     ./modules/vscode.nix
+    ./modules/ollama.nix
   ];
 
   # Bootloader.
@@ -100,12 +101,7 @@
     description = "chris";
     extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm"];
     packages = with pkgs; [
-      alejandra
-      parabolic
-      tree
-      upscayl
-      mission-center
-      tree-sitter
+      # none
     ];
   };
   # Enable zsh
@@ -128,7 +124,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  cli
     wget
     bat
     bat-extras.batman
@@ -145,8 +141,16 @@
     fastfetch
     btop
     glib
+    nixd
+    nil
+    alejandra
+    tree
+    tree-sitter
 
     # gui
+    upscayl
+    parabolic
+    mission-center
     vlc
     localsend
     darktable

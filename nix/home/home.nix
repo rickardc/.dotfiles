@@ -22,7 +22,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    GSETTINGS_SCHEMA_DIR = "${pkgs.glib}/share/glib-2.0/schemas";
   };
 
   programs = {
