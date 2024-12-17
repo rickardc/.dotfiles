@@ -125,12 +125,6 @@
     '';
   };
 
-  # use Ollama LLM
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -151,7 +145,6 @@
     pika-backup
     additions.ida-free
     man
-    stow
     unzip
   ];
 
@@ -189,7 +182,7 @@
   # auto update
   system.autoUpgrade = {
     enable = true;
-    flake = "/home/chris/.dotfiles/nix/flake.nix";
+    flake = "/home/chris/.dotfiles/nix/";
     flags = [
       "--update-input"
       "nixpkgs"
