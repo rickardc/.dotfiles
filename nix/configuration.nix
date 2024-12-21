@@ -101,9 +101,36 @@
     description = "chris";
     extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm"];
     packages = with pkgs; [
-      # none
+      # cli
+      bat
+      bat-extras.batman
+      neovim
+      ripgrep
+      os-prober
+      man
+      unzip
+      fastfetch
+      btop
+      nixd
+      nil
+      alejandra
+
+      # gui
+      upscayl
+      parabolic
+      mission-center
+      vlc
+      localsend
+      darktable
+      pika-backup
+      additions.ida-free
+      signal-desktop
+      _1password-gui
+      zed-editor
+      discord
     ];
   };
+
   # Enable zsh
   programs.zsh.enable = true;
 
@@ -126,40 +153,14 @@
   environment.systemPackages = with pkgs; [
     #  cli
     wget
-    bat
-    bat-extras.batman
-    neovim
     git
     curl
     gh
     fd
     tmux
-    ripgrep
-    os-prober
-    man
-    unzip
-    fastfetch
-    btop
     glib
-    nixd
-    nil
-    alejandra
     tree
     tree-sitter
-
-    # gui
-    upscayl
-    parabolic
-    mission-center
-    vlc
-    localsend
-    darktable
-    pika-backup
-    additions.ida-free
-    signal-desktop
-    _1password-gui
-    unstable.zed-editor
-    discord
   ];
 
   fonts.packages = with pkgs; [
@@ -192,19 +193,6 @@
   #hardware.graphics.enable32Bit = true;
 
   services.xserver.videoDrivers = ["amdgpu"];
-
-  # auto update
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/home/chris/.dotfiles/nix/";
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L" # print build logs
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

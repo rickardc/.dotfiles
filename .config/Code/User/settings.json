@@ -1,0 +1,6 @@
+{
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "redhat.telemetry.enabled": false
+}
