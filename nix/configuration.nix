@@ -16,6 +16,7 @@
     ./modules/languages.nix
     ./modules/vscode.nix
     ./modules/ollama.nix
+    ./modules/jupyter.nix
   ];
 
   # Bootloader.
@@ -65,6 +66,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  environment.sessionVariables = rec {
+    GSK_RENDERER = "gl";
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -99,7 +103,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "chris";
-    extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm"];
+    extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm" "jupyter"];
     packages = with pkgs; [
       # cli
       bat
@@ -218,8 +222,8 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22 53317 8080]; # 53317 for localSend
-  networking.firewall.allowedUDPPorts = [53317];
+  networking.firewall.allowedTCPPorts = [22 53317 8080 8888]; # 53317 for localSend
+  networking.firewall.allowedUDPPorts = [53317 8888];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

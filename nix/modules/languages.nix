@@ -16,6 +16,7 @@
     php82Packages.composer
     python3
     python312Packages.pip
+    python312Packages.jupyter
     R
     vscode-langservers-extracted
   ];
