@@ -5,6 +5,11 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    vulkan-loader
+    wine
+    winetricks
+    libstrangle
+    faudio
     mangohud
     protonup
     lutris
@@ -25,7 +30,7 @@
   programs.gamemode.enable = true;
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/comaptibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/chris/.steam/root/compatibilitytools.d";
   };
 
   hardware = {
@@ -34,9 +39,13 @@
       enable32Bit = true;
     };
 
-    amdgpu.amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
+    amdgpu = {
+      opencl.enable = true;
+      initrd.enable = true;
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+      };
     };
   };
 }
