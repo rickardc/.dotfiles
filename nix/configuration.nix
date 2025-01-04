@@ -132,6 +132,7 @@
       _1password-gui
       zed-editor
       discord
+      unstable.ghostty
     ];
   };
 
