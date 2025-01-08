@@ -118,6 +118,7 @@
       nixd
       nil
       alejandra
+      bluez
 
       # gui
       upscayl
