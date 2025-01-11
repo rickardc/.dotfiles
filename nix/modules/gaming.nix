@@ -15,6 +15,7 @@
     lutris
     duckstation
     pcsx2
+    extest
   ];
 
   programs.steam = {
@@ -24,7 +25,7 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-    extest.enable = true;
+    extest.enable = false;
   };
 
   programs.gamemode.enable = true;
