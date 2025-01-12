@@ -11,7 +11,7 @@
     lua
     lua51Packages.lua
     luajitPackages.luarocks
-    nodejs_23
+    #nodejs_23
     php
     php82Packages.composer
     python3
