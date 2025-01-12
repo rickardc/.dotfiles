@@ -119,6 +119,7 @@
       nil
       alejandra
       bluez
+      #python312Packages.ds4drv
 
       # gui
       upscayl
@@ -228,6 +229,10 @@
   networking.firewall.allowedUDPPorts = [53317 8888];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  #
+  # Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

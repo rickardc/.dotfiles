@@ -17,6 +17,8 @@
     python3
     python312Packages.pip
     python312Packages.jupyter
+    python312Packages.bluepy
+    python312Packages.pybluez
     R
     vscode-langservers-extracted
   ];
