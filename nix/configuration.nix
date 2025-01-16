@@ -86,7 +86,9 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
+    pulse.enable = false;
+    audio.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     # jack.enable = true;
 
@@ -101,25 +103,6 @@
       "bluez5.enable-msbc" = true;
       "bluez5.enable-hw-volume" = true;
       "bluez5.roles" = ["hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag"];
-    };
-  };
-
-  services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
-    context.modules = [
-      {
-        name = "libpipewire-module-protocol-pulse";
-        args = {
-          pulse.min.req = "32/48000";
-          pulse.default.req = "32/48000";
-          pulse.max.req = "32/48000";
-          pulse.min.quantum = "32/48000";
-          pulse.max.quantum = "32/48000";
-        };
-      }
-    ];
-    stream.properties = {
-      node.latency = "32/48000";
-      resample.quality = 1;
     };
   };
 
@@ -263,6 +246,11 @@
   # Bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.settings = {
+    General = {
+      ControllerMode = "bredr";
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
