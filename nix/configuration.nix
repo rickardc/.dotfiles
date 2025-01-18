@@ -84,11 +84,11 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = false;
-    audio.enable = true;
-    wireplumber.enable = true;
+    #alsa.enable = true;
+    #alsa.support32Bit = true;
+    pulse.enable = true;
+    #audio.enable = true;
+    #wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     # jack.enable = true;
 
@@ -97,12 +97,15 @@
     # media-session.enable = true;
   };
 
-  services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
-    "monitor.bluez.properties" = {
-      "bluez5.enable-sbc-xq" = true;
-      "bluez5.enable-msbc" = true;
-      "bluez5.enable-hw-volume" = true;
-      "bluez5.roles" = ["hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag"];
+  # Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.settings = {
+    General = {
+      ControllerMode = "bredr";
+      Disable = "Socket,Headset";
+      Enable = "Media,Source,Sink,Gateway";
+      AutoConnect = true;
     };
   };
 
@@ -243,14 +246,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   #
-  # Bluetooth
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.bluetooth.settings = {
-    General = {
-      ControllerMode = "bredr";
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
