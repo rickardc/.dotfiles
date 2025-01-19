@@ -129,6 +129,7 @@
       unzip
       fastfetch
       btop
+      nvtopPackages.amd # nvtop
       nixd
       nil
       alejandra
