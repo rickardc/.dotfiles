@@ -16,12 +16,19 @@
     duckstation
     pcsx2
     extest
+    geekbench
   ];
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     gamescopeSession.enable = true;
+    gamescopeSession.args = [
+      "--fullscreen" # Run games in fullscreen mode
+      "--fsr" # Enable AMD FidelityFX Super Resolution (FSR)
+      "--fsr-sharpness=0.5" # Set FSR sharpness to 0.5
+      "--preferred-fps=60" # Limit to 60 frames per second
+    ];
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
