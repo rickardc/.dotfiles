@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ## Defaults
-keepGensDef=5; keepDaysDef=5
+keepGensDef=30; keepDaysDef=30
 keepGens=$keepGensDef; keepDays=$keepDaysDef
 
 ## Usage
@@ -153,7 +153,7 @@ choose () {
 
     case "$answer" in
         [yY1] ) #printf "answered yes!\n"
-             nix-env --delete-generations -p $profile "${!gens[@]}"
+             nix-env --delete-generations -p $profile ${!gens[@]}
             exit 0
             ;;
         [nN0] ) printf "Ok doing nothing exiting..\n"
@@ -167,7 +167,7 @@ choose () {
 
 # printf "profile = $profile\n\n"
 ## Query nix-env for generations list
-mapfile -t nixGens < <(nix-env --list-generations -p $profile | sed 's:^\s*::; s:\s*$::' | tr '\t' ' ' | tr -s ' ')
+IFS=$'\n' nixGens=( $(nix-env --list-generations -p $profile | sed 's:^\s*::; s:\s*$::' | tr '\t' ' ' | tr -s ' ') )
 timeNow=$(date +%s)
 
 ## Get info on oldest generation

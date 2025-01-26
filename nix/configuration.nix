@@ -31,6 +31,7 @@
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
     settings.warn-dirty = false;
+    settings.auto-optimise-store = true;
   };
 
   # Configure network proxy if necessary
