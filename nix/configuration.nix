@@ -186,6 +186,11 @@
     glib
     tree
     tree-sitter
+    stow
+
+    sway
+    wofi
+    waybar
   ];
 
   fonts.packages = with pkgs; [

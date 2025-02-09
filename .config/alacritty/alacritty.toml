@@ -1,6 +1,47 @@
+[cursor]
+style = "Block"
+unfocused_hollow = true
 
 [env]
 TERM = "xterm-256color"
+
+[font]
+size = 14
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "FiraCode Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "+"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "_"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "q"
+mods = "Control"
 
 [window]
 decorations = "none"
@@ -17,36 +58,6 @@ lines = 60
 [window.padding]
 x = 2
 y = 4
-
-[font]
-normal = { family = "MesloLGS Nerd Font Mono", style = "Regular" }
-size = 14
-
-[font.bold]
-family = "FiraCode Nerd Font Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "FiraCode Nerd Font Mono"
-style = "Bold Italic"
-
-[font.italic]
-family = "FiraCode Nerd Font Mono"
-style = "Italic"
-
-
-[selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
-save_to_clipboard = false
-
-[cursor]
-style = { shape = "Block", blinking = "Always" }
-blink_interval = 600
-blink_timeout = 0
-unfocused_hollow = true
-
-[mouse]
-hide_when_typing = true
 
 [general]
 
