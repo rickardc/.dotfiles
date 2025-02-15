@@ -1,19 +1,19 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    air
-    elixir
-    cargo
+    #air
+    #elixir
+    #cargo
     gcc
     gnumake
-    go
-    zulu #java
-    julia
+    #go
+    #zulu #java
+    #julia
     lua
     lua51Packages.lua
     luajitPackages.luarocks
     #nodejs_23
-    php
-    php82Packages.composer
+    #php
+    #php82Packages.composer
     python3
     R
     vscode-langservers-extracted

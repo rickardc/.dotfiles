@@ -71,6 +71,11 @@
     GSK_RENDERER = "gl";
   };
 
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "au";
@@ -137,9 +142,11 @@
       bluez
       pulseaudio
       pavucontrol
+      zoxide
       #python312Packages.ds4drv
 
       # gui
+      alacritty
       upscayl
       parabolic
       mission-center
@@ -191,6 +198,10 @@
     sway
     wofi
     waybar
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
   ];
 
   fonts.packages = with pkgs; [

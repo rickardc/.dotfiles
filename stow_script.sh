@@ -2,5 +2,5 @@
 
 #stow --dir=./.config --target=$HOME/.config
 
-stow --adopt --target="$HOME/.config" .config # Stow each package
-
+stow --target="$HOME/.config" .config 
+stow --target="$HOME" home 
