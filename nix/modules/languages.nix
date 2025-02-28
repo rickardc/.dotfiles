@@ -16,6 +16,5 @@
     #php82Packages.composer
     python3
     R
-    vscode-langservers-extracted
   ];
 }

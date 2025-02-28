@@ -143,7 +143,6 @@
       pulseaudio
       pavucontrol
       zoxide
-      #python312Packages.ds4drv
 
       # gui
       alacritty
@@ -158,8 +157,8 @@
       signal-desktop
       _1password-gui
       zed-editor
-      discord
       unstable.ghostty
+      vscodium
     ];
   };
 
