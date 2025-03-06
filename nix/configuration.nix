@@ -32,6 +32,8 @@
     settings.experimental-features = ["nix-command" "flakes"];
     settings.warn-dirty = false;
     settings.auto-optimise-store = true;
+    optimise.automatic = true;
+    optimise.dates = ["11:45"];
   };
 
   # Configure network proxy if necessary
