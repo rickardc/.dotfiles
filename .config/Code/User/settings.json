@@ -3,5 +3,6 @@
     "explorer.confirmDelete": false,
     "git.confirmSync": false,
     "redhat.telemetry.enabled": false,
-    "editor.fontFamily": "\"FiraCode Nerd Font\", 'Droid Sans Mono', 'monospace', monospace"
+    "editor.fontFamily": "\"FiraCode Nerd Font\", 'Droid Sans Mono', 'monospace', monospace",
+    "explorer.confirmPasteNative": false
 }
