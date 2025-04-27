@@ -36,7 +36,7 @@ fpath+="$HOME/.zsh/plugins/fzf-tab"
 plugins=(git sudo golang kubectl kubectx rust command-not-found pass helm)
 
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 
 
