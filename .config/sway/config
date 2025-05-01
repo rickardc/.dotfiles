@@ -7,7 +7,8 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod1
+set $mod4 Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -23,7 +24,7 @@ set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
 ### Appearance configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/chris/Pictures/wallpaper/R4Hcn06.jpg fill
+output * bg /home/chris/.dotfiles/nix/wallpapers/abstract.png fill
 #
 # Example configuration:
 #
@@ -81,6 +82,7 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym --no-repeat --release Super_L exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -207,19 +209,13 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Setup workspaces
-workspace 9
-exec discord
+# Launch applications and send them to the correct workspace
+exec swaymsg "workspace 1; exec flatpak run org.mozilla.firefox"
+exec swaymsg "workspace 2; exec alacritty"
+exec swaymsg "workspace 3; exec code"
 
-workspace 2 
-exec alacritty
-
-workspace 3
-exec firefox
-exec code
-
-workspace 1
-exec firefox
+# Start on workspace 1
+workspace $ws1
 
 
 # enable numlock

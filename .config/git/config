@@ -1,0 +1,15 @@
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[user]
+	email = "103567821+rickardc@users.noreply.github.com"
+	name = "Chris Rickard"

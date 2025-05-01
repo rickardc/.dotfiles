@@ -3,7 +3,7 @@ set -x
 pushd /home/chris/.dotfiles/nix || exit
 alejandra . &>/dev/null
 git add .
-git diff -U0 ./*.nix*
+git diff -U0 ./*
 echo "NixOS Rebuilding..."
 sudo nix flake update
 sudo nixos-rebuild switch --flake . | tee nixos-switch.log || (
@@ -11,4 +11,5 @@ sudo nixos-rebuild switch --flake . | tee nixos-switch.log || (
 gen=$(nixos-rebuild list-generations | grep current)
 echo "Generation: $gen"
 git commit -am "$gen"
+flatpak update
 popd || exit

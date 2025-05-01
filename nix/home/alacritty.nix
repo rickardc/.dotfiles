@@ -28,15 +28,15 @@
     };
 
     font = let
-      jetbrainsMono = style: {
-        family = "FiraCode Nerd Font";
+      firacodeMono = style: {
+        family = "FiraCode Nerd Font Mono";
         inherit style;
       };
     in {
-      normal = jetbrainsMono "Regular";
-      bold = jetbrainsMono "Bold";
-      italic = jetbrainsMono "Italic";
-      bold_italic = jetbrainsMono "Bold Italic";
+      normal = firacodeMono "Regular";
+      bold = firacodeMono "Bold";
+      italic = firacodeMono "Italic";
+      bold_italic = firacodeMono "Bold Italic";
       size = 14;
     };
 

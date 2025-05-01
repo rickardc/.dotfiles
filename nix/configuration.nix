@@ -15,6 +15,8 @@
     ./modules/gnome.nix
     ./modules/languages.nix
     ./modules/vscode.nix
+    ./modules/ollama.nix
+    ./modules/jupyter.nix
   ];
 
   # Bootloader.
@@ -29,6 +31,9 @@
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
     settings.warn-dirty = false;
+    settings.auto-optimise-store = true;
+    optimise.automatic = true;
+    optimise.dates = ["11:45"];
   };
 
   # Configure network proxy if necessary
@@ -64,6 +69,14 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  environment.sessionVariables = rec {
+    GSK_RENDERER = "gl";
+  };
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -79,15 +92,29 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    #alsa.enable = true;
+    #alsa.support32Bit = true;
     pulse.enable = true;
+    #audio.enable = true;
+    #wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # media-session.enable = true;
+  };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.settings = {
+    General = {
+      ControllerMode = "bredr";
+      Disable = "Socket,Headset";
+      Enable = "Media,Source,Sink,Gateway";
+      AutoConnect = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -98,16 +125,45 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "chris";
-    extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm"];
+    extraGroups = ["networkmanager" "wheel" "docker" "libvirt" "kvm" "jupyter"];
     packages = with pkgs; [
+      # cli
+      bat
+      bat-extras.batman
+      neovim
+      ripgrep
+      os-prober
+      man
+      unzip
+      fastfetch
+      btop
+      nvtopPackages.amd # nvtop
+      nixd
+      nil
       alejandra
-      parabolic
-      tree
+      bluez
+      pulseaudio
+      pavucontrol
+      zoxide
+
+      # gui
+      alacritty
       upscayl
+      parabolic
       mission-center
-      tree-sitter
+      vlc
+      localsend
+      darktable
+      pika-backup
+      additions.ida-free
+      signal-desktop
+      _1password-gui
+      zed-editor
+      unstable.ghostty
+      vscodium
     ];
   };
+
   # Enable zsh
   programs.zsh.enable = true;
 
@@ -128,25 +184,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  cli
     wget
-    bat
-    bat-extras.batman
-    neovim
     git
     curl
     gh
     fd
     tmux
-    ripgrep
-    os-prober
-    localsend
-    darktable
-    pika-backup
-    firefox
-    additions.ida-free
-    man
-    unzip
+    glib
+    tree
+    tree-sitter
+    stow
+
+    sway
+    wofi
+    waybar
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
   ];
 
   fonts.packages = with pkgs; [
@@ -180,19 +236,6 @@
 
   services.xserver.videoDrivers = ["amdgpu"];
 
-  # auto update
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/home/chris/github/nixos/flake.nix";
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L" # print build logs
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -217,10 +260,11 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22 53317]; # 53317 for localSend
-  networking.firewall.allowedUDPPorts = [53317];
+  networking.firewall.allowedTCPPorts = [22 53317 8080 8888]; # 53317 for localSend
+  networking.firewall.allowedUDPPorts = [53317 8888];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  #
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
