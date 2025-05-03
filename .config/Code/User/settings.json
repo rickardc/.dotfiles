@@ -5,5 +5,6 @@
     "redhat.telemetry.enabled": false,
     "editor.fontFamily": "\"FiraCode Nerd Font\", 'Droid Sans Mono', 'monospace', monospace",
     "explorer.confirmPasteNative": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.enableSmartCommit": true
 }
