@@ -1,6 +1,6 @@
 {
   // ─── Editor ────────────────────────────────────────────────────────────────
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.lineNumbers": "relative",
   "editor.inlineSuggest.enabled": true,
   "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
@@ -35,7 +35,7 @@
 
   // ─── UI Tweaks ─────────────────────────────────────────────────────────────
   "workbench.statusBar.visible": true,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 0.8,
   "breadcrumbs.enabled": false,
 
   // ─── Vim ───────────────────────────────────────────────────────────────────
@@ -43,12 +43,7 @@
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["<A-d>"],
-      "after": ["editor.action.addSelectionToNextFindMatch"]
-    }
-  ],
+  "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [],
   "vim.visualModeKeyBindingsNonRecursive": [],
 
@@ -59,7 +54,7 @@
     "editor.formatOnType": true
   },
   "[sql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "mtxr.sqltools",
     "editor.formatOnSave": true
   },
   "[json]": {
@@ -67,10 +62,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.associations": {
-    "*.rmd": "markdown"
+    "*.rmd": "markdown",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // ─── Python ────────────────────────────────────────────────────────────────
@@ -100,8 +97,7 @@
 
   "jupyter.askForKernelRestart": false, // Less interruptions
   "jupyter.enablePlotViewer": true, // View matplotlib plots interactively
-  "jupyter.logging.level": "error", // Quiet background logs
-  "jupyter.sendSelectionToInteractiveWindow": false, // Use native notebooks, not interactive window
+  "jupyter.logging.level": "error", // Use native notebooks, not interactive window
 
   "python.dataScience.useNotebookEditor": true, // Force use of notebook UI
   "python.dataScience.jupyterServerURI": "local", // Local kernel by default
@@ -164,5 +160,6 @@
   // "php.validate.executablePath": "/usr/local/Cellar/php/8.2.7_1/bin/php",
 
   // Uncomment if using C/C++:
-  "C_Cpp.default.compilerPath": "/bin/gcc"
+  "C_Cpp.default.compilerPath": "/bin/gcc",
+  "jupyter.interactiveWindow.textEditor.executeSelection": false
 }
