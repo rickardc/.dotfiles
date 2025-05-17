@@ -32,7 +32,7 @@ PS1='\033[0;32m\]\u@\h\033[0m\]:\033[0;34m\]\w\[\033[0m\]$ '
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/chris/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/chris/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -62,6 +62,6 @@ alias ls='ls --color=auto'
 
 eval "$(zoxide init bash)"
 
-if [[ :$SHELLOPTS: =~ :(vi|emacs): ]]; then  
+if [[ :$SHELLOPTS: =~ :(vi|emacs): ]]; then
     eval "$(fzf --bash)"
 fi
