@@ -10,7 +10,9 @@ fi
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+if [[ -v _comps ]]; then
+  _comps[zinit]=_zinit
+fi
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -46,6 +48,9 @@ zinit cdreplay -q
 # Prompt
 eval "$($HOME/.local/bin/oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
+if ! eval "$($HOME/.local/bin/oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"; then
+  PROMPT='%n@%m %1~ %# '
+fi
 
 # Keybindings
 bindkey -e
@@ -68,8 +73,8 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
@@ -85,6 +90,7 @@ alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
+alias man='batman'
 
 # Shell integrations
 eval "$(fzf --zsh)"

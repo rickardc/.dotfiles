@@ -43,19 +43,24 @@
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
+  "vim.handleKeys": {
+    "<C-d>": false
+  },
   "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [],
   "vim.visualModeKeyBindingsNonRecursive": [],
 
   // ─── Languages ─────────────────────────────────────────────────────────────
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.formatOnType": true
   },
   "[sql]": {
     "editor.defaultFormatter": "mtxr.sqltools",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.foldingStrategy": "indentation",
+    "editor.foldingImportsByDefault": true
   },
   "[json]": {
     "editor.tabSize": 2,
@@ -77,6 +82,7 @@
   "python.linting.pylintEnabled": true,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/home/chris/miniconda3/envs/py312/bin/python",
 
   // ─── notebook ────────────────────────────────────────────────────────────────
   "notebook.lineNumbers": "on", // Always show line numbers
@@ -88,7 +94,7 @@
   "notebook.cellEditor.tabSize": 4, // Python-style indentation
   "notebook.consolidatedOutputButton": true, // Collapse long outputs
   "notebook.dragAndDropEnabled": true, // Enable rearranging cells
-  "notebook.defaultFormatter": "ms-python.autopep8",
+  "notebook.defaultFormatter": "ms-python.black-formatter",
   "notebook.output.fontSize": 14,
 
   "notebook.output.wordWrap": true, // No horizontal scrolling
@@ -146,7 +152,7 @@
   "cSpell.language": "en-GB",
   "cSpell.userWords": ["ndarray", "wordpressdb"],
 
-  // ─── Telemetry ───────────────────────────────────────────────────
+  // ─── Telemetry ─────────────────────────────────────────────────────────────
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "github.copilot.telemetry.enable": false,
@@ -155,11 +161,10 @@
   // ─── Other ─────────────────────────────────────────────────────────────────
   "security.workspace.trust.untrustedFiles": "open",
   "chat.commandCenter.enabled": false,
-
-  // Uncomment and update if PHP validation is required:
-  // "php.validate.executablePath": "/usr/local/Cellar/php/8.2.7_1/bin/php",
-
-  // Uncomment if using C/C++:
   "C_Cpp.default.compilerPath": "/bin/gcc",
-  "jupyter.interactiveWindow.textEditor.executeSelection": false
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "workbench.editor.empty.hint": "hidden",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
