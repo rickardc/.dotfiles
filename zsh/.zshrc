@@ -74,6 +74,14 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias ll='ls -lah'
+alias vim='nvim'
+alias cat='bat'
+alias ff='fastfetch'
+alias gs='git status'
+alias gc='git commit'
+alias gco='git checkout'
+alias c='clear'
 
 # Shell integrations
 eval "$(fzf --zsh)"
