@@ -1,0 +1,7 @@
+[keyboard]
+bindings = [
+{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+{ key = "+", mods = "Control|Shift", action = "IncreaseFontSize" },
+{ key = "_", mods = "Control|Shift", action = "DecreaseFontSize" },
+{ key = "q", mods = "Control", action = "Quit" },
+]
