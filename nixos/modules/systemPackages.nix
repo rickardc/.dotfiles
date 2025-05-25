@@ -3,35 +3,41 @@
   pkgs,
   ...
 }: {
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zsh
+    ### CLI Utilities
+
+    # Shells
     fish
+    zsh
+
+    # Terminal tools
+    alacritty
+    bat
+    btop
+    curl
+    fd
+    fzf
     git
     gh
-    xfce.thunar
-    stow
-    alacritty
-    btop
-
-    bat # better cat
-    ripgrep # fast grep alternative
-    fd # modern find
-    htop # system monitor
-    tree # directory tree view
-    tmux # terminal multiplexer
-    pavucontrol
-
-    unzip
-    curl
-    wget
+    htop
     inetutils
     nmap
-    zip
     p7zip
+    ripgrep
+    stow
+    tmux
+    tree
+    unzip
+    wget
+    zip
+
+    ### Applications (GUI)
+
+    librewolf # web browser
+    pavucontrol # audio control
+    vscodium # code editor
+    xfce.thunar # file manager
   ];
 }

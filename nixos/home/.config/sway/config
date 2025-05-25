@@ -71,7 +71,7 @@ output * bg /mnt/data/wallpapers/The_Verge_iPhone_11_Pro_Wallpaper_01.jpg fill
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    floating_modifier $mod
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -79,7 +79,7 @@ output * bg /mnt/data/wallpapers/The_Verge_iPhone_11_Pro_Wallpaper_01.jpg fill
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    ### Window Borders 
+    ### Window Borders
     default_border none
     gaps inner 8
     gaps outer 3
@@ -247,4 +247,3 @@ default_border pixel 3
 default_floating_border pixel 2
 
 for_window [app_id=".*"] opacity 0.9
-

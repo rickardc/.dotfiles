@@ -6,13 +6,22 @@
   tuigreetTheme = "border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
   sway-session = "${pkgs.sway}/share/wayland-sessions";
 in {
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${sway-session}  --theme ${tuigreetTheme}";
-      user = "greeter";
-    };
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings.default_session = {
+  #     command = ''
+  #       ${pkgs.greetd.tuigreet}/bin/tuigreet \
+  #         --time \
+  #         -- debug \
+  #         --remember \
+  #         --remember-session \
+  #         --sessions ${sway-session} \
+  #         --theme ${tuigreetTheme} \
+  #         --cmd "sh -l -c sway"
+  #     '';
+  #     user = "greeter";
+  #   };
+  # };
 
   # this is a life saver.
   # literally no documentation about this anywhere.
@@ -49,10 +58,9 @@ in {
     greetd.tuigreet
     wl-clipboard
     xwayland # Optional, for legacy X11 apps
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
   ];
-
-  # Optional: give your user access to sway session and DRM
-  users.users.chris.extraGroups = ["seat" "video"];
 
   # seatd gives DRM access without root
   services.seatd.enable = true;
@@ -79,5 +87,6 @@ in {
     enable = true;
     extraPortals = with pkgs; [xdg-desktop-portal-wlr];
     config.common.default = "*";
+    wlr.enable = true;
   };
 }

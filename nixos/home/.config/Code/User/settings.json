@@ -126,6 +126,26 @@
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
 
+  // ─── GitHub ─────────
+  // Use GitHub as the default remote provider
+  "gitHub.gitProtocol": "ssh",
+
+  // Enable GitHub authentication for the Git extension
+  "git.authValidation": true,
+
+  // Automatically sign in with GitHub in the GitHub Pull Requests extension
+  "githubPullRequests.telemetry.enabled": false,
+  "githubPullRequests.terminalLinks.enabled": true,
+
+  // Whether to use the GitHub-provided credentials in Git
+  "git.credentialHelper": "GitHub",
+
+  // Disable GitHub notifications (like the update badge)
+  "extensions.ignoreRecommendations": false,
+
+  // Configure Codespaces access if applicable
+  "github.codespacesAuthentication": true,
+
   // ─── Search & File Watching ────────────────────────────────────────────────
   "search.exclude": {
     "**/node_modules/**": true,
@@ -151,6 +171,8 @@
   // ─── Extensions & Updates ──────────────────────────────────────────────────
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "update.showReleaseNotes": false,
+  "sync.ignoredSettings": ["extensions"],
+  "update.mode": "manual",
 
   // ─── Spelling & Snippets ───────────────────────────────────────────────────
   "cSpell.language": "en-GB",
@@ -169,8 +191,5 @@
   "workbench.editor.empty.hint": "hidden",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-
-  },
-  "sync.ignoredSettings": ["extensions"]
-
+  }
 }

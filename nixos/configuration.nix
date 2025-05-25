@@ -11,12 +11,13 @@
     ./hardware-configuration.nix
     ./modules/gaming.nix
     ./modules/fonts.nix
+    ./modules/gnome.nix
     ./modules/homelab.nix
     ./modules/jupyter.nix
     ./modules/shells.nix
     ./modules/systemPackages.nix
-    ./modules/sway.nix
-    ./modules/terminal_programs.nix
+    # ./modules/sway.nix
+    ./modules/program_options.nix
     ./modules/user.nix
     ./modules/vscode.nix
   ];
@@ -114,7 +115,6 @@
   # default apps
   xdg.mime = {
     enable = true;
-
     defaultApplications = {
       "application/pdf" = "org.gnome.Evince.desktop";
       "text/plain" = "org.gnome.TextEditor.desktop";
