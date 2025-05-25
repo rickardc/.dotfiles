@@ -8,9 +8,8 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "chris";
-    extraGroups = ["networkmanager" "wheel" "seat" "video" "render"];
+    extraGroups = ["networkmanager" "wheel" "seat" "video" "render" "jupyter"];
     packages = with pkgs; [
-      neovim
       fastfetch
       oh-my-posh
       alejandra
