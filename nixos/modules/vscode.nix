@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
     vscode-langservers-extracted
 
@@ -6,20 +11,39 @@
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
         bmewburn.vscode-intelephense-client
+        codezombiech.gitignore
         davidanson.vscode-markdownlint
-        dbaeumer.vscode-eslint
-        enkia.tokyo-night
+        ecmel.vscode-html-css
+        esbenp.prettier-vscode
+        firefox-devtools.vscode-firefox-debug
+        foxundermoon.shell-format
         kamadorueda.alejandra
-        ms-python.python
+        mechatroner.rainbow-csv
         ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
+        ms-python.black-formatter
+        ms-python.debugpy
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-toolsai.datawrangler
         ms-toolsai.jupyter
-        ms-vscode.cpptools-extension-pack
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh-edit
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
+
+        pollywoggames.pico8-ls
         redhat.ansible
+        redhat.java
+        redhat.vscode-xml
         redhat.vscode-yaml
+        streetsidesoftware.code-spell-checker
         tamasfe.even-better-toml
-        timonwong.shellcheck
+        vscodevim.vim
       ];
     })
   ];

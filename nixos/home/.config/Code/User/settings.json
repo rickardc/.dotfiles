@@ -1,12 +1,176 @@
 {
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "git.confirmSync": false,
-    "redhat.telemetry.enabled": false,
-    "editor.fontFamily": "\"FiraCode Nerd Font\", 'Droid Sans Mono', 'monospace', monospace",
-    "explorer.confirmPasteNative": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "git.enableSmartCommit": true,
-    "jupyter.notebook.fileRoot": "${fileDirname}",
-    "jupyter.askForKernelRestart": false
+  // ─── Editor ────────────────────────────────────────────────────────────────
+  "editor.fontSize": 14,
+  "editor.lineNumbers": "relative",
+  "editor.inlineSuggest.enabled": true,
+  "editor.cursorSmoothCaretAnimation": "on", // Smooth cursor movement
+  "editor.cursorBlinking": "phase", // Nice cursor animation
+  "editor.cursorStyle": "line", // Or try "block" for Vim feel
+  "editor.minimap.enabled": false, // Disable distraction
+  "editor.smoothScrolling": true, // Nicer scroll feel
+  "editor.scrollBeyondLastLine": false, // Keeps view tight
+  "editor.renderWhitespace": "all", // Helps spot indentation
+  "editor.renderControlCharacters": true, // Useful for debugging
+  "editor.rulers": [80, 100], // Guide lines for code width
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.suggestSelection": "first",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.tabCompletion": "on",
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // ─── UI Tweaks ─────────────────────────────────────────────────────────────
+  "workbench.statusBar.visible": true,
+  "breadcrumbs.enabled": false,
+
+  // ─── Vim ───────────────────────────────────────────────────────────────────
+  "vim.leader": "<Space>",
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.handleKeys": {
+    "<C-d>": false
+  },
+  "vim.insertModeKeyBindings": [],
+  "vim.normalModeKeyBindingsNonRecursive": [],
+  "vim.visualModeKeyBindingsNonRecursive": [],
+
+  // ─── Languages ─────────────────────────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools",
+    "editor.formatOnSave": true,
+    "editor.foldingStrategy": "indentation",
+    "editor.foldingImportsByDefault": true
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "kamadorueda.alejandra",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false
+  },
+  "alejandra.program": "alejandra",
+  "files.associations": {
+    "*.rmd": "markdown",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ─── Python ────────────────────────────────────────────────────────────────
+  "python.terminal.activateEnvironment": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+
+  // ─── notebook ────────────────────────────────────────────────────────────────
+  "notebook.lineNumbers": "on", // Always show line numbers
+  "notebook.output.textLineLimit": 100, // Avoid overwhelming output
+  "notebook.cellToolbarLocation": {
+    "default": "right", // Toolbar on the side for less clutter
+    "jupyter-notebook": "left"
+  },
+  "notebook.cellEditor.tabSize": 4, // Python-style indentation
+  "notebook.consolidatedOutputButton": true, // Collapse long outputs
+  "notebook.dragAndDropEnabled": true, // Enable rearranging cells
+  "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.output.fontSize": 14,
+
+  "notebook.output.wordWrap": true, // No horizontal scrolling
+  "notebook.diffMode": "text", // Better version control diffs
+  "notebook.cellStatusBar.visible": "visible", // Show execution time and info
+
+  "jupyter.askForKernelRestart": false, // Less interruptions
+  "jupyter.enablePlotViewer": true, // View matplotlib plots interactively
+  "jupyter.logging.level": "error", // Use native notebooks, not interactive window
+
+  "python.dataScience.useNotebookEditor": true, // Force use of notebook UI
+  "python.dataScience.jupyterServerURI": "local", // Local kernel by default
+  "python.languageServer": "Pylance", // Fast, accurate analysis
+
+  // ─── Terminal ──────────────────────────────────────────────────────────────
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.scrollback": 5000,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "block",
+
+  // ─── Git ───────────────────────────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+
+  // ─── Search & File Watching ────────────────────────────────────────────────
+  "search.exclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/tmp/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
+  },
+  "files.exclude": {
+    "**/tmp/**": true,
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/dist/**": true
+  },
+  "search.followSymlinks": false,
+
+  // ─── Extensions & Updates ──────────────────────────────────────────────────
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "update.showReleaseNotes": false,
+
+  // ─── Spelling & Snippets ───────────────────────────────────────────────────
+  "cSpell.language": "en-GB",
+  "cSpell.userWords": ["ndarray", "wordpressdb"],
+
+  // ─── Telemetry ─────────────────────────────────────────────────────────────
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "github.copilot.telemetry.enable": false,
+  "chat.experimental.telemetry.enabled": false,
+
+  // ─── Other ─────────────────────────────────────────────────────────────────
+  "security.workspace.trust.untrustedFiles": "open",
+  "chat.commandCenter.enabled": false,
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "workbench.editor.empty.hint": "hidden",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+  },
+  "sync.ignoredSettings": ["extensions"]
+
 }
