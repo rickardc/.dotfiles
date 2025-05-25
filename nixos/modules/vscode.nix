@@ -4,7 +4,6 @@
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
-        arrterian.nix-env-selector
         bbenoist.nix
         bmewburn.vscode-intelephense-client
         davidanson.vscode-markdownlint

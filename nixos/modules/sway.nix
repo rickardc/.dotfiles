@@ -2,16 +2,31 @@
   config,
   pkgs,
   ...
-}: {
-  # Enable greetd with tuigreet as the greeter
+}: let
+  tuigreetTheme = "border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
+  sway-session = "${pkgs.sway}/share/wayland-sessions";
+in {
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
-      };
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${sway-session}  --theme ${tuigreetTheme}";
+      user = "greeter";
     };
+  };
+
+  # this is a life saver.
+  # literally no documentation about this anywhere.
+  # might be good to write about this...
+  # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
   };
 
   # Create a greeter system user
@@ -26,6 +41,8 @@
   # Set up Sway and basic Wayland apps
   environment.systemPackages = with pkgs; [
     sway
+    swayidle
+    swaylock
     waybar
     wofi
     alacritty
@@ -35,13 +52,17 @@
   ];
 
   # Optional: give your user access to sway session and DRM
-  users.users.chris.extraGroups = ["seat" "video"]; # Replace with your username
+  users.users.chris.extraGroups = ["seat" "video"];
 
   # seatd gives DRM access without root
   services.seatd.enable = true;
 
   # Enable dbus (needed for some apps like Waybar, notifications)
   services.dbus.enable = true;
+
+  systemd.user.services.swayidle = {
+    enable = true;
+  };
 
   # Set Wayland environment variables
   environment.sessionVariables = {
@@ -53,6 +74,10 @@
   # Ensure swaylock works
   security.pam.services.swaylock = {};
 
-  # Optional: fonts for UI polish
-  fonts.packages = with pkgs; [dejavu_fonts noto-fonts];
+  #Use xdg-desktop-portal-wlr for Sway and Wayland-based environments.
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [xdg-desktop-portal-wlr];
+    config.common.default = "*";
+  };
 }

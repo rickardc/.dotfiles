@@ -10,10 +10,14 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/gaming.nix
+    ./modules/fonts.nix
+    ./modules/homelab.nix
     ./modules/jupyter.nix
     ./modules/shells.nix
+    ./modules/systemPackages.nix
     ./modules/sway.nix
     ./modules/terminal_programs.nix
+    ./modules/user.nix
     ./modules/vscode.nix
   ];
 
@@ -53,20 +57,6 @@
     LC_PAPER = "en_AU.UTF-8";
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -110,31 +100,6 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.chris = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "chris";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-
-      neovim
-      bat
-      fastfetch
-      unzip
-      ripgrep
-      oh-my-posh
-      alejandra
-      stow
-
-      vscodium
-      alacritty
-      _1password-gui
-      signal-desktop
-    ];
-  };
-
   # Enable flatpak
   services.flatpak.enable = true;
 
@@ -146,27 +111,17 @@
     '';
   };
 
-  # Enable automatic login for the user.
-  #services.displayManager.autoLogin.enable = true;
-  #services.displayManager.autoLogin.user = "chris";
+  # default apps
+  xdg.mime = {
+    enable = true;
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  #systemd.services."getty@tty1".enable = false;
-  #systemd.services."autovt@tty1".enable = false;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    starship
-    zsh
-    git
-    gh
-  ];
+    defaultApplications = {
+      "application/pdf" = "org.gnome.Evince.desktop";
+      "text/plain" = "org.gnome.TextEditor.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

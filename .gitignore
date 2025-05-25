@@ -7,3 +7,5 @@
 *.zshrc.zwc
 
 *nixos-switch.log
+
+*secrets*
