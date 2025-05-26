@@ -2,7 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-     # NixOS official package source, here using the nixos-23.11 branch
+    # NixOS official package source, here using the nixos-23.11 branch
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     # Unstable Packages
@@ -13,8 +13,13 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, alacritty-theme, ... } @ inputs:  {
-
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    alacritty-theme,
+    ...
+  } @ inputs: {
     # The host with the hostname `my-nixos` will use this configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

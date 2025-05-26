@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ./modules/gaming.nix
     ./modules/fonts.nix
+    ./modules/firefox.nix
     ./modules/gnome.nix
     ./modules/homelab.nix
     ./modules/jupyter.nix
@@ -25,8 +26,18 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      configurationLimit = 5;
+    };
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -92,11 +103,13 @@
     };
     optimise = {
       automatic = true;
-      dates = ["11:45"];
+      dates = ["20:10"];
+      randomizedDelaySec = "300";
     };
     gc = {
-      automatic = true;
-      randomizedDelaySec = "14m";
+      automatic = false;
+      dates = "20:30";
+      randomizedDelaySec = "10m";
       options = "--delete-older-than 10d";
     };
   };
