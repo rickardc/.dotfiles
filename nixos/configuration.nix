@@ -35,7 +35,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      configurationLimit = 5;
+      configurationLimit = 20;
     };
   };
 
@@ -103,15 +103,23 @@
     };
     optimise = {
       automatic = true;
-      dates = ["20:10"];
-      randomizedDelaySec = "300";
+      dates = ["quarterly"];
+      randomizedDelaySec = "20hr";
     };
     gc = {
-      automatic = false;
-      dates = "20:30";
-      randomizedDelaySec = "10m";
-      options = "--delete-older-than 10d";
+      automatic = true;
+      dates = "quarterly";
+      randomizedDelaySec = "20hr";
+      options = "--delete-older-than 90d";
     };
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
+    dates = "weekly";
+    randomizedDelaySec = "20hr";
+    allowReboot = false;
   };
 
   # Enable flatpak
