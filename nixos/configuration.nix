@@ -14,7 +14,8 @@
     ./modules/firefox.nix
     ./modules/gnome.nix
     ./modules/homelab.nix
-    ./modules/jupyter.nix
+    #./modules/jupyter.nix
+    ./modules/python.nix
     ./modules/shells.nix
     ./modules/systemPackages.nix
     # ./modules/sway.nix
@@ -104,12 +105,12 @@
     optimise = {
       automatic = true;
       dates = ["quarterly"];
-      randomizedDelaySec = "20hr";
+      randomizedDelaySec = "14d";
     };
     gc = {
       automatic = true;
       dates = "quarterly";
-      randomizedDelaySec = "20hr";
+      randomizedDelaySec = "14d";
       options = "--delete-older-than 90d";
     };
   };
@@ -118,7 +119,7 @@
     enable = true;
     flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
     dates = "weekly";
-    randomizedDelaySec = "20hr";
+    randomizedDelaySec = "2d";
     allowReboot = false;
   };
 

@@ -1,0 +1,13 @@
+name: myenv
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - ipython
+  - pip
+  - pip:
+    - black
+    - flake8

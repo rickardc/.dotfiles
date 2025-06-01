@@ -35,10 +35,7 @@
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
-
         pollywoggames.pico8-ls
-        redhat.ansible
-        redhat.java
         redhat.vscode-xml
         redhat.vscode-yaml
         streetsidesoftware.code-spell-checker

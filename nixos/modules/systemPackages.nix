@@ -18,11 +18,13 @@
     btop
     curl
     fd
+    file
     fzf
     git
     gh
     htop
     inetutils
+    man-pages
     nmap
     p7zip
     ripgrep
@@ -39,5 +41,8 @@
     pavucontrol # audio control
     vscodium # code editor
     xfce.thunar # file manager
+
+    _1password-cli
+    _1password-gui
   ];
 }

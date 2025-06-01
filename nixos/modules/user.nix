@@ -13,9 +13,10 @@
       fastfetch
       oh-my-posh
       alejandra
-      _1password-gui
       signal-desktop
       localsend
+      zed-editor
+      unstable.ghostty
     ];
   };
 }

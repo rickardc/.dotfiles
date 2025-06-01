@@ -19,7 +19,7 @@
       #   ".ignore:Git Ignore"
       # ];
       pager = "less";
-      paging = "never";
+      #paging = "never";
       theme = "TwoDark";
     };
   };

@@ -25,6 +25,14 @@
   "editor.suggestSelection": "first",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.tabCompletion": "on",
+  "editor.surroundingPairs": [
+    ["\"", "\""],
+    ["'", "'"],
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"]
+  ],
+  "editor.autoSurround": "quotes",
 
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
@@ -87,8 +95,9 @@
   "python.linting.pylintEnabled": true,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
+  "black-formatter.path": ["black"],
 
-  // ─── notebook ────────────────────────────────────────────────────────────────
+  // ─── notebook ──────────────────────────────────────────────────────────────
   "notebook.lineNumbers": "on", // Always show line numbers
   "notebook.output.textLineLimit": 100, // Avoid overwhelming output
   "notebook.cellToolbarLocation": {
@@ -99,6 +108,7 @@
   "notebook.consolidatedOutputButton": true, // Collapse long outputs
   "notebook.dragAndDropEnabled": true, // Enable rearranging cells
   "notebook.defaultFormatter": "ms-python.black-formatter",
+  "notebook.formatOnSave.enabled": true,
   "notebook.output.fontSize": 14,
 
   "notebook.output.wordWrap": true, // No horizontal scrolling
