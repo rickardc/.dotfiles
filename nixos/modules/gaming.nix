@@ -5,24 +5,24 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    vulkan-loader
-    wine
-    winetricks
-    libstrangle
-    faudio
-    mangohud
-    lutris
     duckstation
+    extest
+    faudio
+    libstrangle
+    lutris
+    mangohud
     ppsspp
     pcsx2
-    extest
+    pciutils
     vulkan-tools
+    wine
+    winetricks
   ];
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    gamescopeSession.enable = true;
+    gamescopeSession.enable = false;
     gamescopeSession.args = [
       "-H 1440"
       "--borderless"
@@ -38,20 +38,22 @@
     extest.enable = false;
   };
 
-  security.wrappers.gamescope = {
-    source = "${pkgs.gamescope}/bin/gamescope";
-    capabilities = "cap_sys_nice+ep";
-    owner = "root";
-    group = "root";
-    permissions = "u+s";
+  programs.gamemode.enable = true;
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
   };
 
-  programs.gamemode.enable = true;
+  # security.wrappers.gamescope = {
+  #   source = "${pkgs.gamescope}/bin/gamescope";
+  #   capabilities = "cap_sys_nice+ep";
+  #   owner = "root";
+  #   group = "root";
+  #   permissions = "u+s";
+  # };
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/chris/.steam/root/compatibilitytools.d";
-    MESA_VK_DEVICE_SELECT = "0"; # Use first Mesa GPU
-    VK_ICD_FILENAMES = "/etc/vulkan/icd.d/radeon_icd.x86_64.json";
   };
 
   hardware = {
@@ -59,27 +61,26 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        vulkan-loader
-        vulkan-validation-layers
+        mesa
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
         mesa
       ];
     };
 
-    amdgpu = {
-      opencl.enable = true;
-      initrd.enable = true;
-      amdvlk = {
-        enable = true;
-        support32Bit.enable = true;
-        settings = {
-          AllowVkPipelineCachingToDisk = 1;
-          ShaderCacheMode = 2; # cache to disk
-          EnableVmAlwaysValid = 1;
-          IFH = 0; # disable "Infinitely Fast Hardware" (i.e., enable real rendering)
-        };
-      };
-    };
+    # amdgpu = {
+    #   opencl.enable = true;
+    #   initrd.enable = true;
+    #   amdvlk = {
+    #     enable = true;
+    #     support32Bit.enable = true;
+    #     settings = {
+    #       AllowVkPipelineCachingToDisk = 1;
+    #       ShaderCacheMode = 2; # cache to disk
+    #       EnableVmAlwaysValid = 1;
+    #       IFH = 0; # disable "Infinitely Fast Hardware" (i.e., enable real rendering)
+    #     };
+    #   };
+    # };
   };
 }

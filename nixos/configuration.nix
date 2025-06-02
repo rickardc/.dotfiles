@@ -24,8 +24,6 @@
     ./modules/vscode.nix
   ];
 
-  hardware.cpu.amd.updateMicrocode = true;
-
   # Bootloader.
   boot.loader = {
     efi = {
@@ -34,7 +32,9 @@
     };
     grub = {
       enable = true;
+      backgroundColor = "#24283b";
       efiSupport = true;
+      gfxmodeEfi = "1024x768";
       device = "nodev";
       configurationLimit = 20;
     };
@@ -44,15 +44,19 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-62039fe4-6f6d-4338-a623-2b9fe1cb704e".device = "/dev/disk/by-uuid/62039fe4-6f6d-4338-a623-2b9fe1cb704e";
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    # Enable networking
+    networkmanager.enable = true;
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+    # Open ports in the firewall.
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [22 53317 8080 8888]; # 53317 for localSend
+      allowedUDPPorts = [53317 8888];
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
@@ -91,11 +95,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # nix settings
-
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -115,6 +114,8 @@
     };
   };
 
+  # Check when this runs next
+  # systemctl list-timers '*nix-*' '*upgrade*' --all
   system.autoUpgrade = {
     enable = true;
     flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
@@ -135,15 +136,15 @@
   };
 
   # default apps
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = "org.gnome.Evince.desktop";
-      "text/plain" = "org.gnome.TextEditor.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-    };
-  };
+  # xdg.mime = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "application/pdf" = "org.gnome.Evince.desktop";
+  #     "text/plain" = "org.gnome.TextEditor.desktop";
+  #     "x-scheme-handler/http" = "firefox.desktop";
+  #     "x-scheme-handler/https" = "firefox.desktop";
+  #   };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -152,8 +153,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -167,12 +166,6 @@
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22 53317 8080 8888]; # 53317 for localSend
-  networking.firewall.allowedUDPPorts = [53317 8888];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

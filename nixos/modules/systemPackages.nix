@@ -20,6 +20,7 @@
     fd
     file
     fzf
+    gcc
     git
     gh
     htop

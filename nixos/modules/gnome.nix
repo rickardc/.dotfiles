@@ -7,7 +7,10 @@
   services.xserver = {
     enable = true;
     # Enable the GNOME Desktop Environment
-    displayManager.gdm.enable = true;
+    displayManager = {
+      gdm.enable = true;
+      gdm.wayland = true;
+    };
     desktopManager.gnome.enable = true;
     videoDrivers = ["amdgpu"];
     # Configure keymap in X11
