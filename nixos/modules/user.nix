@@ -8,13 +8,15 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "chris";
-    extraGroups = ["networkmanager" "wheel" "seat" "video" "render" "jupyter"];
+    extraGroups = ["networkmanager" "wheel" "seat" "video" "render" "jupyter" "kfd"];
     packages = with pkgs; [
       fastfetch
       oh-my-posh
       alejandra
       signal-desktop
       localsend
+      rocmPackages.rocm-smi
+      rocmPackages.rocminfo
       zed-editor
       unstable.ghostty
     ];

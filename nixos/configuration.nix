@@ -12,13 +12,14 @@
     ./modules/gaming.nix
     ./modules/fonts.nix
     ./modules/firefox.nix
+    ./modules/flatpak.nix
     ./modules/gnome.nix
     ./modules/homelab.nix
     #./modules/jupyter.nix
     ./modules/python.nix
     ./modules/shells.nix
     ./modules/systemPackages.nix
-    # ./modules/sway.nix
+    ./modules/sway.nix
     ./modules/program_options.nix
     ./modules/user.nix
     ./modules/vscode.nix
@@ -76,9 +77,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -104,12 +102,12 @@
     optimise = {
       automatic = true;
       dates = ["quarterly"];
-      randomizedDelaySec = "14d";
+      randomizedDelaySec = "20min";
     };
     gc = {
       automatic = true;
       dates = "quarterly";
-      randomizedDelaySec = "14d";
+      randomizedDelaySec = "20min";
       options = "--delete-older-than 90d";
     };
   };
@@ -120,19 +118,8 @@
     enable = true;
     flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
     dates = "weekly";
-    randomizedDelaySec = "2d";
+    randomizedDelaySec = "20min";
     allowReboot = false;
-  };
-
-  # Enable flatpak
-  services.flatpak.enable = true;
-
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
   };
 
   # default apps

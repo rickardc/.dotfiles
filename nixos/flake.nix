@@ -35,6 +35,10 @@
                 system = "x86_64-linux";
                 config.allowUnfree = true;
               };
+              # Override btop to add ROCm support
+              btop = prev.btop.overrideAttrs (old: {
+                buildInputs = (old.buildInputs or []) ++ [prev.rocmPackages.rocm-smi];
+              });
 
               # add my packages
               additions = import ./pkgs final.pkgs;
