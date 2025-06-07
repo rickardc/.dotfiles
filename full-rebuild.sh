@@ -6,9 +6,12 @@ git add .
 git diff -U0 ./*
 echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --flake . | tee nixos-switch.log || (
- < nixos-switch.log grep --color error && false)
+    <nixos-switch.log grep --color error && false
+)
 gen=$(nixos-rebuild list-generations | grep current)
 echo "Generation: $gen"
 git commit -am "$gen"
+git fetch origin
+git push origin nixos-25
 flatpak update
 popd || exit
