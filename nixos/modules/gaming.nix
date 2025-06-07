@@ -27,15 +27,14 @@
       "-H 1440"
       "--borderless"
       "--fullscreen" # Run games in fullscreen mode
-      "--fsr" # Enable AMD FidelityFX Super Resolution (FSR)
-      "--fsr-sharpness=0.5" # Set FSR sharpness to 0.5
-      "--preferred-fps=60" # Limit to 60 frames per second
+      "--expose-wayland"
+      "--hdr-enabled"
       "--mangoapp"
     ];
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-    extest.enable = false;
+    extest.enable = true;
   };
 
   programs.gamemode.enable = true;

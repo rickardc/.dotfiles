@@ -17,6 +17,7 @@
     bat
     btop
     curl
+    corefonts
     fd
     file
     fzf
@@ -30,6 +31,7 @@
     p7zip
     ripgrep
     stow
+    sysbench
     tmux
     tree
     unzip

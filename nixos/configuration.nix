@@ -35,7 +35,6 @@
       enable = true;
       backgroundColor = "#24283b";
       efiSupport = true;
-      gfxmodeEfi = "1024x768";
       device = "nodev";
       configurationLimit = 20;
     };
@@ -101,11 +100,13 @@
     };
     optimise = {
       automatic = true;
+      persistent = true;
       dates = ["quarterly"];
       randomizedDelaySec = "20min";
     };
     gc = {
       automatic = true;
+      persistent = true;
       dates = "quarterly";
       randomizedDelaySec = "20min";
       options = "--delete-older-than 90d";
@@ -116,8 +117,9 @@
   # systemctl list-timers '*nix-*' '*upgrade*' --all
   system.autoUpgrade = {
     enable = true;
+    persistent = true;
     flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
-    dates = "weekly";
+    dates = "daily";
     randomizedDelaySec = "20min";
     allowReboot = false;
   };
