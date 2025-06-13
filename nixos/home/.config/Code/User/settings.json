@@ -86,7 +86,7 @@
   "alejandra.program": "alejandra",
   "files.associations": {
     "*.rmd": "markdown",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "*.gp2040": "json"
   },
 
   // ─── Python ────────────────────────────────────────────────────────────────

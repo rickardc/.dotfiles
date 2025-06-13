@@ -21,6 +21,7 @@
 
   programs.steam = {
     enable = true;
+    extest.enable = false;
     remotePlay.openFirewall = true;
     gamescopeSession.enable = false;
     gamescopeSession.args = [
@@ -34,7 +35,6 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-    extest.enable = true;
   };
 
   programs.gamemode.enable = true;

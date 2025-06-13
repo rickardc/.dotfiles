@@ -19,6 +19,7 @@
         foxundermoon.shell-format
         kamadorueda.alejandra
         mechatroner.rainbow-csv
+        zainchen.json
         ms-azuretools.vscode-docker
         ms-python.black-formatter
         ms-python.debugpy

@@ -37,9 +37,10 @@
     unzip
     wget
     zip
-
+    lact
     ### Applications (GUI)
 
+    darktable
     librewolf # web browser
     pavucontrol # audio control
     vscodium # code editor

@@ -14,9 +14,11 @@
       oh-my-posh
       alejandra
       signal-desktop
+      librecad
       localsend
       rocmPackages.rocm-smi
       rocmPackages.rocminfo
+      sudo-rs
       zed-editor
       unstable.ghostty
     ];

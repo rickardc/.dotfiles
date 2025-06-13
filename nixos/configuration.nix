@@ -37,6 +37,16 @@
       efiSupport = true;
       device = "nodev";
       configurationLimit = 20;
+      gfxmodeEfi = "auto";
+      extraConfig = ''
+        insmod all_video
+        insmod gfxterm
+        set gfxmode=auto
+        set gfxpayload=keep
+        terminal_output gfxterm
+        terminal_input console
+      '';
+      font = "${pkgs.grub2}/share/grub/unicode.pf2";
     };
   };
 
@@ -60,6 +70,10 @@
 
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
+
+  # Set sudo-rs
+  security.sudo.enable = false;
+  security.sudo-rs.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -120,7 +134,7 @@
     persistent = true;
     flake = ".#nixos"; # Match nixosConfigurations.<your-hostname> in flake.nix
     dates = "daily";
-    randomizedDelaySec = "20min";
+    randomizedDelaySec = "1min";
     allowReboot = false;
   };
 
