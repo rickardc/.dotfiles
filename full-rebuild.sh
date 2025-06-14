@@ -14,5 +14,5 @@ echo "Generation: $gen"
 git commit -am "$gen"
 git fetch origin
 git push origin nixos-25
-flatpak update
+flatpak update -y
 popd || exit
