@@ -38,13 +38,13 @@
     wget
     zip
     lact
-    ### Applications (GUI)
 
+    ### Applications (GUI)
     darktable
-    librewolf # web browser
-    pavucontrol # audio control
-    vscodium # code editor
-    xfce.thunar # file manager
+    librewolf
+    pavucontrol
+    vlc
+    vscodium
 
     _1password-cli
     _1password-gui
