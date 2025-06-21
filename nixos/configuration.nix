@@ -16,6 +16,7 @@
     ./modules/gnome.nix
     ./modules/homelab.nix
     #./modules/jupyter.nix
+    ./modules/ollama.nix
     ./modules/python.nix
     ./modules/shells.nix
     ./modules/systemPackages.nix
